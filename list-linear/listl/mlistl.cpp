@@ -54,21 +54,23 @@ int main()
 	cout << "5. Mencari Alamat Sebelum Elemen Tertentu" << endl;
 	cout << "6. Menampilkan Jumlah Elemen di dalam List" << endl;
 	cout << "7. Menampilkan Elemen Maksimum di dalam List" << endl;
-	cout << "8. Menampilkan Elemen Minimum di dalam List" << endl;
-	cout << "9. Menampilkan Rata-Rata Elemen di dalam List" << endl;
-	cout << "10. Menambah Elemen di Depan" << endl;
-	cout << "11. Menambah Elemen di Belakang" << endl;
-	cout << "12. Menghapus Elemen di Depan" << endl;
-	cout << "13. Menghapus Elemen di Belakang" << endl;
-	cout << "14. Menghapus Alamat Sesuai dengan Elemen yang Ditentukan" << endl;
-	cout << "15. Menghapus Semua Elemen List\n16. Invers List" << endl;
-	cout << "17. Menghasilkan List Hasil Invers List Lain ke List Lt" << endl;
-	cout << "18. Menyalin List tanpa Alokasi ke List Lt" << endl;
-	cout << "19. Menyalin List dengan Alokasi ke List Lt" << endl;
-	cout << "20. Menghasilkan List Hasil Penyalinan List Lain ke List Lt" << endl;
-	cout << "21. Menyambung List tanpa Alokasi" << endl;
-	cout << "22. Menyambung List dengan Alokasi" << endl;
-	cout << "23. Memecah List\n99. Keluar" << endl;
+	cout << "8. Menampilkan Alamat Elemen Maksimum di dalam List" << endl;
+	cout << "9. Menampilkan Elemen Minimum di dalam List" << endl;
+	cout << "10. Menampilkan Alamat Elemen Minimum di dalam List" << endl;
+	cout << "11. Menampilkan Rata-Rata Elemen di dalam List" << endl;
+	cout << "12. Menambah Elemen di Depan" << endl;
+	cout << "13. Menambah Elemen di Belakang" << endl;
+	cout << "14. Menghapus Elemen di Depan" << endl;
+	cout << "15. Menghapus Elemen di Belakang" << endl;
+	cout << "16. Menghapus Alamat Sesuai dengan Elemen yang Ditentukan" << endl;
+	cout << "17. Menghapus Semua Elemen List\n18. Invers List" << endl;
+	cout << "19. Menghasilkan List Hasil Invers List Lain ke List Lt" << endl;
+	cout << "20. Menyalin List tanpa Alokasi" << endl;
+	cout << "21. Menyalin List dengan Alokasi" << endl;
+	cout << "22. Menghasilkan List Hasil Penyalinan List Lain ke List Lt" << endl;
+	cout << "23. Menyambung List tanpa Alokasi" << endl;
+	cout << "24. Menyambung List dengan Alokasi" << endl;
+	cout << "25. Memecah List\n99. Keluar" << endl;
 	cout << "\nInput Pilihan: "; cin >> pilihan;
 	cout << endl;
 	switch(pilihan){
@@ -439,6 +441,55 @@ int main()
 			break;
 		case 8:
 			header();
+			cout << "\n-- Menampilkan Alamat Elemen Maksimum di dalam List --\n" << endl;
+			cout << "Pilih List:\n" << endl;
+			cout << "1. L1\n2. L2\n3. L3\n4. Lt" << endl;
+			cout << "\nInput Pilihan: "; cin >> pilihan;
+			cout << endl;
+			switch(pilihan){
+				case 1:
+					if (!ListEmpty(L1)){
+						cout << "Alamat elemen maksimum L1: " << AdrMax(L1) << endl;
+						cout << endl;
+					}
+					else{
+						cout << "List L1 kosong!\n" << endl;
+					}
+					break;
+				case 2:
+					if (!ListEmpty(L2)){
+						cout << "Alamat elemen maksimum L2: " << AdrMax(L2) << endl;
+						cout << endl;
+					}
+					else{
+						cout << "List L2 kosong!\n" << endl;
+					}
+					break;
+				case 3:
+					if (!ListEmpty(L3)){
+						cout << "Alamat elemen maksimum L3: " << AdrMax(L3) << endl;
+						cout << endl;
+					}
+					else{
+						cout << "List L3 kosong!\n" << endl;
+					}
+				case 4:
+					if (!ListEmpty(Lt)){
+						cout << "Alamat elemen maksimum Lt: " << AdrMax(Lt) << endl;
+						cout << endl;
+					}
+					else{
+						cout << "List Lt kosong!\n" << endl;
+					}
+					break;
+				default:
+					cout << "Input tidak valid!\n" << endl;
+					break;
+			}
+			system("pause");
+			break;
+		case 9:
+			header();
 			cout << "\n-- Menampilkan Elemen Minimum di dalam List --\n" << endl;
 			cout << "Pilih List:\n" << endl;
 			cout << "1. L1\n2. L2\n3. L3\n4. Lt" << endl;
@@ -487,7 +538,56 @@ int main()
 			}
 			system("pause");
 			break;
-		case 9:
+		case 10:
+			header();
+			cout << "\n-- Menampilkan Alamat Elemen Minimum di dalam List --\n" << endl;
+			cout << "Pilih List:\n" << endl;
+			cout << "1. L1\n2. L2\n3. L3\n4. Lt" << endl;
+			cout << "\nInput Pilihan: "; cin >> pilihan;
+			cout << endl;
+			switch(pilihan){
+				case 1:
+					if (!ListEmpty(L1)){
+						cout << "Alamat elemen minimum L1: " << AdrMin(L1) << endl;
+						cout << endl;
+					}
+					else{
+						cout << "List L1 kosong!\n" << endl;
+					}
+					break;
+				case 2:
+					if (!ListEmpty(L2)){
+						cout << "Alamat elemen minimum L2: " << AdrMin(L2) << endl;
+						cout << endl;
+					}
+					else{
+						cout << "List L2 kosong!\n" << endl;
+					}
+					break;
+				case 3:
+					if (!ListEmpty(L3)){
+						cout << "Alamat elemen minimum L3: " << AdrMin(L3) << endl;
+						cout << endl;
+					}
+					else{
+						cout << "List L3 kosong!\n" << endl;
+					}
+				case 4:
+					if (!ListEmpty(Lt)){
+						cout << "Alamat elemen minimum Lt: " << AdrMax(Lt) << endl;
+						cout << endl;
+					}
+					else{
+						cout << "List Lt kosong!\n" << endl;
+					}
+					break;
+				default:
+					cout << "Input tidak valid!\n" << endl;
+					break;
+			}
+			system("pause");
+			break;
+		case 11:
 			header();
 			cout << "\n-- Menampilkan Rata-Rata Elemen di dalam List --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -537,7 +637,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 10:
+		case 12:
 			header();
 			cout << "\n-- Menambah Elemen di Depan --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -575,7 +675,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 11:
+		case 13:
 			header();
 			cout << "\n-- Menambah Elemen di Depan --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -613,7 +713,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 12:
+		case 14:
 			header();
 			cout << "\n-- Menghapus Elemen di Depan --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -663,7 +763,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 13:
+		case 15:
 			header();
 			cout << "\n-- Menghapus Elemen di Belakang --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -713,7 +813,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 14:
+		case 16:
 			header();
 			cout << "\n-- Menghapus Alamat Sesuai dengan Elemen yang Ditentukan --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -795,7 +895,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 15:
+		case 17:
 			header();
 			cout << "\n-- Menghapus Semua Elemen List --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -849,7 +949,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 16:
+		case 18:
 			header();
 			cout << "\n-- Invers List --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -903,7 +1003,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 17:
+		case 19:
 			header();
 			cout << "\n-- Menghasilkan List Hasil Invers List Lain ke List Lt --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -951,7 +1051,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 18:
+		case 20:
 			header();
 			cout << "\n-- Menyalin List dengan Alokasi ke List Lt --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -995,7 +1095,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 19:
+		case 21:
 			header();
 			cout << "\n-- Menyalin List dengan Alokasi ke List Lt --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -1039,7 +1139,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 20:
+		case 22:
 			header();
 			cout << "\n-- Menghasilkan List Hasil Penyalinan List Lain ke List Lt --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -1083,7 +1183,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 21:
+		case 23:
 			header();
 			cout << "\n-- Menyambung List tanpa Alokasi --\n" << endl;
 			cout << "Pilih List Pertama:\n" << endl;
@@ -1196,7 +1296,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 22:
+		case 24:
 			header();
 			cout << "\n-- Menyambung List dengan Alokasi --\n" << endl;
 			cout << "Pilih List Pertama:\n" << endl;
@@ -1312,7 +1412,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 23:
+		case 25:
 			header();
 			cout << "\n-- Memecah List --\n" << endl;
 			cout << "Pilih List Pertama:\n" << endl;
