@@ -63,8 +63,8 @@ int main()
 	cout << "14. Menghapus Alamat Sesuai dengan Elemen yang Ditentukan" << endl;
 	cout << "15. Menghapus Semua Elemen List\n16. Invers List" << endl;
 	cout << "17. Menghasilkan List Hasil Invers List Lain ke List Lt" << endl;
-	cout << "18. Menyalin List tanpa Alokasi" << endl;
-	cout << "19. Menyalin List dengan Alokasi" << endl;
+	cout << "18. Menyalin List tanpa Alokasi ke List Lt" << endl;
+	cout << "19. Menyalin List dengan Alokasi ke List Lt" << endl;
 	cout << "20. Menghasilkan List Hasil Penyalinan List Lain ke List Lt" << endl;
 	cout << "21. Menyambung List tanpa Alokasi" << endl;
 	cout << "22. Menyambung List dengan Alokasi" << endl;
@@ -1041,7 +1041,7 @@ int main()
 			break;
 		case 20:
 			header();
-			cout << "\n-- Menghasilkan List Lt Hasil Penyalinan List Lain --\n" << endl;
+			cout << "\n-- Menghasilkan List Hasil Penyalinan List Lain ke List Lt --\n" << endl;
 			cout << "Pilih List:\n" << endl;
 			cout << "1. L1\n2. L2\n3. L3" << endl;
 			cout << "\nInput Pilihan: "; cin >> pilihan;
