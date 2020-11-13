@@ -13,7 +13,7 @@ using namespace std;
 void header(){
 	system("cls");
 	cout << "---------------------------------------------------" << endl;
-    cout << "|              PRAKTIKUM MINGGU KE-7              |" << endl;
+	cout << "|              PRAKTIKUM MINGGU KE-7              |" << endl;
 	cout << "---------------------------------------------------" << endl;
 	cout << "|   	          TUGAS ADT LISTL                 |" << endl;
 	cout << "|DOSEN PENGAMPU: Dr. ARIS PUJI WIDODO, S.Si., M.T.|" << endl;
