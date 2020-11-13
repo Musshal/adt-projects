@@ -3,9 +3,9 @@
 
 /***********************************/
 /* Program	: listl.hpp */
-/* Deskripsi: Contoh ADT list berkait dengan representasi fisik pointer */
-/* 			  Representasi address dengan pointer */
-/* 			  infotype adalah integer */
+/* Deskripsi	: Contoh ADT list berkait dengan representasi fisik pointer */
+/*		  Representasi address dengan pointer */
+/*		  infotype adalah integer */
 /* NIM/Nama	: 24060118120042/Musthafa Kamal Faishal */
 /* Tanggal	: 7/11/2020 */
 /***********************************/
@@ -18,7 +18,7 @@
 typedef int infotype;
 typedef struct tElmtlist *address;
 typedef struct tElmtlist {	infotype info;
-							address next; } ElmtList;
+			  	address next;	} ElmtList;
 /* Definisi list : */
 /* List kosong : First(L) = Nil */
 /* Setiap elemen dengan address P dapat diacu info(P), Next(P) */
