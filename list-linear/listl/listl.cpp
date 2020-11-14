@@ -75,19 +75,20 @@ bool FSearch (List L, address P)
 {
 	/* kamus lokal */
 	address Pcheck;
-    boolean Found;
+	bool Found;
 	
 	/* algoritma */
 	Pcheck = First(L);
-    Found = false;
-    while ((Pcheck != NIL)&&(!Found)) {
-      if (Pcheck == P) {
-        Found = true;
-      } else {
-        Pcheck = next(Pcheck);
-      }
-    }
-    return (Found);
+	Found = false;
+	while ((Pcheck != NIL)&&(!Found)){
+		if (Pcheck == P){
+			Found = true;
+		}
+		else{
+			Pcheck = next(Pcheck);
+		}
+	}
+	return (Found);
 }
 
 address SearchPrec (List L, infotype X)
