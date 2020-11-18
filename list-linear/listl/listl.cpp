@@ -7,7 +7,6 @@
 #include <iostream>
 #include <cstdlib>
 #include "listl.hpp"
-#include "boolean.hpp"
 using namespace std;
 
 bool ListEmpty (List L)
@@ -504,21 +503,38 @@ void CpAlokList (List Lin, List * Lout)
 
 void Konkat (List L1, List L2, List * L3)
 {
-	/* kamus lokal */
-	address Lastl;
-
-	/* algoritma */
+	/* Kamus Lokal */
+	address P, Pt;
+	bool Failed;
+	
+	/* Algoritma */
 	CreateList(L3);
-	if (First(L1) == NIL){
-		First(*L3) = First(L2);
-	}
-	else{
-		First(*L3) = First(L1);
-		Lastl = First(L1);
-		while (next(Lastl) != NIL){
-			Lastl = next(Lastl);
+	Failed = false;
+	P = First(L1);
+	while ((P != NIL)&&(!Failed)){
+		Pt = Alokasi(info(P));
+		if (Pt != NIL){
+			InsertLast(L3,Pt);
+			P = next(P);
 		}
-		next(Lastl) = First(L2);
+		else{
+			Failed = true;
+			DelAll(L3);
+		}
+	}
+	if (!Failed){
+		P = First(L2);
+		while ((P != NIL)&&(!Failed)){
+			Pt = Alokasi(info(P));
+			if (Pt != NIL){
+				InsertLast(L3,Pt);
+				P = next(P);
+			}
+			else{
+				Failed = true;
+				DelAll(L3);
+			}
+		}
 	}
 }
 
