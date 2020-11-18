@@ -5,9 +5,7 @@
 /***********************************/
 
 #include <iostream>
-#include <cstdlib>
 #include "listl.hpp"
-#include "boolean.hpp"
 using namespace std;
 
 void header(){
@@ -1315,7 +1313,7 @@ int main()
 							case 1:
 								if (!ListEmpty(L2)){
 									Konkat(L1,L2,&Lt);
-									cout << "List berhasil disambung!\n" << endl;
+									cout << "\nList berhasil disambung!\n" << endl;
 									break;
 								}
 								else{
@@ -1325,7 +1323,7 @@ int main()
 							case 2:
 								if (!ListEmpty(L3)){
 									Konkat(L1, L3, &Lt);
-									cout << "List berhasil disambung!\n" << endl;
+									cout << "\nList berhasil disambung!\n" << endl;
 									break;
 								}
 								else{
@@ -1349,7 +1347,7 @@ int main()
 							case 1:
 								if (!ListEmpty(L1)){
 									Konkat(L2, L1, &Lt);
-									cout << "List berhasil disambung!\n" << endl;
+									cout << "\nList berhasil disambung!\n" << endl;
 									break;
 								}
 								else{
@@ -1359,7 +1357,7 @@ int main()
 							case 2:
 								if (!ListEmpty(L3)){
 									Konkat(L2, L3, &Lt);
-									cout << "List berhasil disambung!\n" << endl;
+									cout << "\nList berhasil disambung!\n" << endl;
 									break;
 								}
 								else{
@@ -1386,7 +1384,7 @@ int main()
 							case 1:
 								if (!ListEmpty(L1)){
 									Konkat(L3, L1, &Lt);
-									cout << "List berhasil disambung!\n" << endl;
+									cout << "\nList berhasil disambung!\n" << endl;
 									break;
 								}
 								else{
@@ -1396,7 +1394,7 @@ int main()
 							case 2:
 								if (!ListEmpty(L3)){
 									Konkat(L3, L2, &Lt);
-									cout << "List berhasil disambung!\n" << endl;
+									cout << "\nList berhasil disambung!\n" << endl;
 									break;
 								}
 								else{
