@@ -675,7 +675,7 @@ int main()
 			break;
 		case 13:
 			header();
-			cout << "\n-- Menambah Elemen di Depan --\n" << endl;
+			cout << "\n-- Menambah Elemen di Belakang --\n" << endl;
 			cout << "Pilih List:\n" << endl;
 			cout << "1. L1\n2. L2\n3. L3\n4. Lt" << endl;
 			cout << "\nInput Pilihan: "; cin >> pilihan;
