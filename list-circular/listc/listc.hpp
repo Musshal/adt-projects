@@ -1,4 +1,4 @@
-/* File     : list1.h */
+/* File     : listc.hpp */
 /* Deskripsi: contoh ADT list circular berkait dengan representasi fisik pointer */
 /*            Representasi address dengan pointer */
 /*            infotype adalah integer */
