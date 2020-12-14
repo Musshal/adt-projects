@@ -19,7 +19,7 @@
 typedef int infotype;
 typedef struct tElmtlist *address;
 typedef struct tElmtlist{	infotype info;
-							address next;	} ElmtList;
+				address next;	} ElmtList;
 							
 /* Definisi list : */
 /* List kosong : First(L) = Nil */
@@ -31,6 +31,11 @@ typedef address List;
 /****************** TEST LIST KOSONG ******************/
 bool IsEmpty (List L) ;
 /* menghasilkan true jika list kosong */
+
+/****************** PEMBUATAN LIST KOSONG ******************/
+void CreateList (List *L);
+/* I.S. sembarang */
+/* F.S. Terbentuk list kosong */
 
 /****************** Manajemen Memori ******************/
 address Alokasi (infotype X);
@@ -51,10 +56,10 @@ void Printlist (List L);
 int NBElmtlist (List L);
 /* I.S. L terdefinisi */
 /* F.S. N berisi banyaknya elemen list */
-void NBElmtlist1 (List L, int N);
+void NBElmtlist1 (List L, int *N);
 /* I.S. L terdefinisi */
 /* F.S. N berisi banyaknya elemen list */
-void NBElmtlistAcc (List L, int Acc, int N);
+void NBElmtlistAcc (List L, int *Acc, int *N);
 
 /****************** PENCARIAN SEBUAH ELEMEN LIST ******************/
 /* Mengirim true jika X adalah anggota list, false jika tidak */
@@ -89,7 +94,7 @@ List Copy (List L);
 /* F.S. Lout berisi salinan dari Lin */
 /* Proses : menyalin Lin ke Lout */
 /* Jika alokasi gagal, Lout adalah ??? */
-void MengCopy (List Lin, List Lout);
+void MengCopy (List Lin, List *Lout);
 /* Mengirimkan salinan hasil konkatenasi list L1 dan L2 */
 List Concat (List L1, List L2);
 /* Mengirimkan salinan hasil konkatenasi list L1 dan L2 */
@@ -97,6 +102,6 @@ List Concat1 (List L1, List L2);
 /* I.S. L1, L2 terdefinisi */
 /* F.S. LHsl adalah hasil melakukan konkatenasi L1 dan L2 dengan cara “disalin” */
 /* Proses : Menghasilkan salinan hasil konkatenasi list L1 dan L2 */
-void Meng_Concat (List L1, List L2, List LHsl);
+void Meng_Concat (List L1, List L2, List *LHsl);
 
 #endif
