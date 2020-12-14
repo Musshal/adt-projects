@@ -36,6 +36,16 @@ address Alokasi (infotype X)
 	return (P);
 }
 
+/* I.S. Sembarang */
+/* F.S. Terbentuk list kosong */
+void CreateList(List *L)
+{
+	/* kamus lokal */
+	
+	/* algoritma */
+	(*L) = Nil;
+}
+
 /* I.S. P terdefinisi */
 /* F.S. P dikembalikan ke sistem */
 /* Melakukan dealokasi/pengembalian address P */
@@ -55,7 +65,7 @@ void Printlist (List L)
 	
 	/* algoritma */
 	if (!IsEmpty(L)){
-		cout << info(L);
+		cout << info(L) << " ";
 		Printlist(next(L));
 	}
 }
@@ -76,33 +86,33 @@ int NBElmtlist (List L)
 
 /* I.S. L terdefinisi */
 /* F.S. N berisi banyaknya elemen list */
-void NBElmtlist1 (List L, int N)
+void NBElmtlist1 (List L, int *N)
 {
 	/* kamus lokal */
 	int N1;
 	
 	/* algoritma */
 	if (IsEmpty(L)){
-		N = 0;
+		(*N) = 0;
 	}
 	else{
-		NBElmtlist1(next(L), N1);
-		N = 1+N1;
+		NBElmtlist1(next(L), &N1);
+		(*N) = 1+N1;
 	}
 }
 
 /* I.S. L terdefinisi */
 /* F.S. N berisi banyaknya elemen list */
-void NBElmtlistAcc (List L, int Acc, int N)
+void NBElmtlistAcc (List L, int *Acc, int *N)
 {
 	/* kamus lokal */
 	
 	/* algoritma */
 	if (IsEmpty(L)){
-		N = Acc;
+		(*N) = (*Acc);
 	}
 	else{
-		Acc++;
+		(*Acc)++;
 		NBElmtlistAcc(next(L), Acc, N);
 	}
 }
@@ -172,7 +182,7 @@ List Head (List L)
 		return (Nil);
 	}
 	else{
-		return Konso(Head(next(L)), FirstElmt(L));
+		return Konso(Head(Tail(L)), FirstElmt(L));
 	}
 }
 
@@ -208,6 +218,7 @@ List Kons (List L, infotype E)
 	}
 	else{
 		if (IsEmpty(L)){
+			next(P) = L;
 			return (L);
 		}
 		else{
@@ -240,18 +251,18 @@ List Copy (List L)
 /* F.S. Lout berisi salinan dari Lin */
 /* Proses : menyalin Lin ke Lout */
 /* Jika alokasi gagal, Lout adalah ??? */
-void MengCopy (List Lin, List Lout)
+void MengCopy (List Lin, List *Lout)
 {
 	/* kamus lokal */
 	List Ltemp;
 	
 	/* algoritma */
 	if (IsEmpty(Lin)){
-		Lout = Lin;
+		(*Lout) = Lin;
 	}
 	else{
-		Copy(Tail(Lin));
-		Lout = Konso(Ltemp, FirstElmt(Lin));
+		Ltemp = Copy(Tail(Lin));
+		(*Lout) = Konso(Ltemp, FirstElmt(Lin));
 	}
 }
 
@@ -286,15 +297,15 @@ List Concat1 (List L1, List L2)
 /* I.S. L1, L2 terdefinisi */
 /* F.S. LHsl adalah hasil melakukan konkatenasi L1 dan L2 dengan cara “disalin” */
 /* Proses : Menghasilkan salinan hasil konkatenasi list L1 dan L2 */
-void Meng_Concat (List L1, List L2, List LHsl)
+void Meng_Concat (List L1, List L2, List *LHsl)
 {
 	/* kamus lokal */
 	
 	/* algoritma */
 	if (IsEmpty(L2)){
-		LHsl = Copy(L2);
+		(*LHsl) = Copy(L2);
 	}
 	else{
-		LHsl = Konso(Concat(L1, Tail(L2)), FirstElmt(L1));
+		(*LHsl) = Konso(Concat(Tail(L1), L2), FirstElmt(L1));
 	}
 }
