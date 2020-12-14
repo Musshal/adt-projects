@@ -25,37 +25,69 @@ void header(){
 int main()
 {
 	/* kamus */
-	List L, L1, L2, Lin, Lout, LHsl, Lt;
+	List L1, L2, Lt;
 	address P;
-	int pilihan, N, Acc;
+	int pilihan, N;
 	infotype X, E;
 	
 	/* program utama */
 	system("cls");
+	CreateList(&L1); CreateList(&L2); CreateList(&Lt);
 	menu:
 	header();
+	cout << "\nL1: "; Printlist(L1);
+	cout << "\nL2: "; Printlist(L2);
+	cout << "\nLt: "; Printlist(Lt);
+	cout << endl;
 	cout << "\nMenu: \n" << endl;
-	cout << "1. Cek Isi List\n2. Menampilkan Isi List" << endl;
-	cout << "3. Menampilkan Jumlah Elemen List Tipe 1" << endl;
-	cout << "4. Menampilkan Jumlah Elemen List Tipe 2" << endl;
-	cout << "5. Menampilkan Jumlah Elemen List Tipe 3" << endl;
-	cout << "6. Cek Elemen di dalam Sebuah List" << endl;
-	cout << "7. Menampilkan Elemen Pertama List" << endl;
-	cout << "8. Menampilkan Elemen Terakhir List" << endl;
-	cout << "9. Menampilkan List tanpa Elemen Pertama" << endl;
-	cout << "10. Menampilkan List tanpa Elemen Terakhir" << endl;
-	cout << "11. Menampilkan List dengan Tambahan Masukan Elemen sebagai Elemen Pertama" << endl;
-	cout << "12. Menampilkan List dengan Tambahan Masukan Elemen sebagai Elemen Terakhir" << endl;
-	cout << "13. Menampilkan Salinan List" << endl;
-	cout << "14. Menampilkan Salinan List ke List Lt" << endl;
-	cout << "15. Menampilkan Salinan Hasil Konkatenasi Dua List Tipe 1" << endl;
-	cout << "16. Menampilkan Salinan Hasil Konkatenasi Dua List Tipe 2" << endl;
-	cout << "17. Menghasilkan Salinan Hasil Konkatenasi Dua List" << endl;
+	cout << "1. Membuat List Kosong\n2. Cek Isi List" << endl;
+	cout << "3. Menampilkan Isi List" << endl;
+	cout << "4. Menampilkan Jumlah Elemen List Tipe 1" << endl;
+	cout << "5. Menampilkan Jumlah Elemen List Tipe 2" << endl;
+	cout << "6. Menampilkan Jumlah Elemen List Tipe 3" << endl;
+	cout << "7. Cek Elemen di dalam Sebuah List" << endl;
+	cout << "8. Menampilkan Elemen Pertama List" << endl;
+	cout << "9. Menampilkan Elemen Terakhir List" << endl;
+	cout << "10. Menampilkan Alamat Elemen Pertama" << endl;
+	cout << "11. Menampilkan Alamat Elemen Terakhir" << endl;
+	cout << "12. Menambah Elemen sebagai Elemen Pertama" << endl;
+	cout << "13. Menambah Elemen sebagai Elemen Terakhir" << endl;
+	cout << "14. Menyalin List ke dalam List Lt Tipe 1" << endl;
+	cout << "15. Menyalin List ke dalam List Lt Tipe 2" << endl;
+	cout << "16. Konkatenasi Dua List ke dalam List Lt Tipe 1" << endl;
+	cout << "17. Konkatenasi Dua List ke dalam List Lt Tipe 2" << endl;
+	cout << "18. Konkatenasi Dua List ke dalam List Lt Tipe 3" << endl;
 	cout << "99. Keluar" << endl;
 	cout << "\nInput Pilihan: "; cin >> pilihan;
 	cout << endl;
 	switch(pilihan){
 		case 1:
+			header();
+			cout << "\n-- Membuat List Kosong --\n" << endl;
+			cout << "Pilih List:\n" << endl;
+			cout << "1. L1\n2. L2\n3. Lt" << endl;
+			cout << "\nInput Pilihan: "; cin >> pilihan;
+			cout << endl;
+			switch(pilihan){
+				case 1:
+					CreateList(&L1);
+					cout << "List kosong L1 dibuat!\n" << endl;
+					break;
+				case 2:
+					CreateList(&L2);
+					cout << "List kosong L2 dibuat!\n" << endl;
+					break;
+				case 3:
+					CreateList(&Lt);
+					cout << "List kosong Lt dibuat!\n" << endl;
+					break;
+				default:
+					cout << "Input tidak valid!\n" << endl;
+					break;
+			}
+			system("pause");
+			break;
+		case 2:
 			header();
 			cout << "\n-- Cek Isi List --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -85,7 +117,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 2:
+		case 3:
 			header();
 			cout << "\n-- Menampilkan Isi List --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -119,7 +151,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 3:
+		case 4:
 			header();
 			cout << "\n-- Menampilkan Jumlah Elemen List Tipe 1 --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -151,7 +183,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 4:
+		case 5:
 			header();
 			cout << "\n-- Menampilkan Jumlah Elemen List Tipe 2 --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -161,7 +193,7 @@ int main()
 			switch(pilihan){
 				case 1:
 					if (!IsEmpty(L1)){
-						NBElmtlist1(L1, N);
+						NBElmtlist1(L1, &N);
 						cout << "Jumlah elemen L1 di dalam N: " << N << endl;
 						cout << endl;
 					}
@@ -171,41 +203,7 @@ int main()
 					break;
 				case 2:
 					if (!IsEmpty(L2)){
-						NBElmtlist1(L2, N);
-						cout << "Jumlah elemen L2 di dalam N: " << N << endl;
-						cout << endl;
-					}
-					else{
-						cout << "List L2 kosong!\n" << endl;
-					}
-					break;
-				default:
-					cout << "Input tidak valid!\n" << endl;
-					break;
-			}
-			system("pause");
-			break;
-		case 5:
-			header();
-			cout << "\n-- Menampilkan Jumlah Elemen List Tipe 3 --\n" << endl;
-			cout << "Pilih List:\n" << endl;
-			cout << "1. L1\n2. L2" << endl;
-			cout << "\nInput Pilihan: "; cin >> pilihan;
-			cout << endl;
-			switch(pilihan){
-				case 1:
-					if (!IsEmpty(L1)){
-						NBElmtlistAcc(L1, Acc, N);
-						cout << "Jumlah elemen L1 di dalam N: " << N << endl;
-						cout << endl;
-					}
-					else{
-						cout << "List L1 kosong!\n" << endl;
-					}
-					break;
-				case 2:
-					if (!IsEmpty(L2)){
-						NBElmtlistAcc(L2, Acc, N);
+						NBElmtlist1(L2, &N);
 						cout << "Jumlah elemen L2 di dalam N: " << N << endl;
 						cout << endl;
 					}
@@ -221,7 +219,7 @@ int main()
 			break;
 		case 6:
 			header();
-			cout << "\n-- Cek Elemen di dalam Sebuah List --\n" << endl;
+			cout << "\n-- Menampilkan Jumlah Elemen List Tipe 3 --\n" << endl;
 			cout << "Pilih List:\n" << endl;
 			cout << "1. L1\n2. L2" << endl;
 			cout << "\nInput Pilihan: "; cin >> pilihan;
@@ -229,8 +227,9 @@ int main()
 			switch(pilihan){
 				case 1:
 					if (!IsEmpty(L1)){
-						Search(L1, X);
-						cout << endl << endl;
+						NBElmtlistAcc(L1, &X, &N);
+						cout << "Jumlah elemen L1 di dalam N: " << N << endl;
+						cout << endl;
 					}
 					else{
 						cout << "List L1 kosong!\n" << endl;
@@ -238,8 +237,9 @@ int main()
 					break;
 				case 2:
 					if (!IsEmpty(L2)){
-						Search(L2, X);
-						cout << endl << endl;
+						NBElmtlistAcc(L2, &X, &N);
+						cout << "Jumlah elemen L2 di dalam N: " << N << endl;
+						cout << endl;
 					}
 					else{
 						cout << "List L2 kosong!\n" << endl;
@@ -252,6 +252,52 @@ int main()
 			system("pause");
 			break;
 		case 7:
+			header();
+			cout << "\n-- Cek Elemen di dalam Sebuah List --\n" << endl;
+			cout << "Pilih List:\n" << endl;
+			cout << "1. L1\n2. L2" << endl;
+			cout << "\nInput Pilihan: "; cin >> pilihan;
+			cout << endl;
+			switch(pilihan){
+				case 1:
+					if (!IsEmpty(L1)){
+						cout << "Input elemen yang ingin dicek: "; cin >> X;
+						cout << endl;
+						if (Search(L1, X)){
+							cout << "Ada!" << endl;
+						}
+						else{
+							cout << "Tidak ada!" << endl;
+						}
+						cout << endl;
+					}
+					else{
+						cout << "List L1 kosong!\n" << endl;
+					}
+					break;
+				case 2:
+					if (!IsEmpty(L2)){
+						cout << "Input elemen yang ingin dicek: "; cin >> X;
+						cout << endl;
+						if (Search(L2, X)){
+							cout << "Ada!" << endl;
+						}
+						else{
+							cout << "Tidak ada!" << endl;
+						}
+						cout << endl;
+					}
+					else{
+						cout << "List L1 kosong!\n" << endl;
+					}
+					break;
+				default:
+					cout << "Input tidak valid!\n" << endl;
+					break;
+			}
+			system("pause");
+			break;
+		case 8:
 			header();
 			cout << "\n-- Menampilkan Elemen Pertama List --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -283,7 +329,7 @@ int main()
 			}
 			system("pause");
 			break;
-		case 8:
+		case 9:
 			header();
 			cout << "\n-- Menampilkan Elemen Terakhir List --\n" << endl;
 			cout << "Pilih List:\n" << endl;
@@ -315,41 +361,9 @@ int main()
 			}
 			system("pause");
 			break;
-		case 9:
-			header();
-			cout << "\n-- Menampilkan Isi List tanpa Elemen Pertama --\n" << endl;
-			cout << "Pilih List:\n" << endl;
-			cout << "1. L1\n2. L2" << endl;
-			cout << "\nInput Pilihan: "; cin >> pilihan;
-			cout << endl;
-			switch(pilihan){
-				case 1:
-					if (!IsEmpty(L1)){
-						cout << "L1: " << Tail(L1) << endl;
-						cout << endl;
-					}
-					else{
-						cout << "List L1 kosong!\n" << endl;
-					}
-					break;
-				case 2:
-					if (!IsEmpty(L2)){
-						cout << "L2: " << Tail(L2) << endl;
-						cout << endl;
-					}
-					else{
-						cout << "List L2 kosong!\n" << endl;
-					}
-					break;
-				default:
-					cout << "Input tidak valid!\n" << endl;
-					break;
-			}
-			system("pause");
-			break;
 		case 10:
 			header();
-			cout << "\n-- Menampilkan Isi List tanpa Elemen Terakhir --\n" << endl;
+			cout << "\n-- Menampilkan Alamat Elemen Pertama --\n" << endl;
 			cout << "Pilih List:\n" << endl;
 			cout << "1. L1\n2. L2" << endl;
 			cout << "\nInput Pilihan: "; cin >> pilihan;
@@ -357,7 +371,7 @@ int main()
 			switch(pilihan){
 				case 1:
 					if (!IsEmpty(L1)){
-						cout << "L1: " << Head(L1) << endl;
+						cout << "Alamat elemen pertama L1: " << Head(L1) << endl;
 						cout << endl;
 					}
 					else{
@@ -366,7 +380,7 @@ int main()
 					break;
 				case 2:
 					if (!IsEmpty(L2)){
-						cout << "L2: " << Head(L2) << endl;
+						cout << "Alamat elemen pertama L2: " << Head(L2) << endl;
 						cout << endl;
 					}
 					else{
@@ -381,55 +395,7 @@ int main()
 			break;
 		case 11:
 			header();
-			cout << "\n-- Menampilkan List dengan Tambahan Masukan Elemen sebagai Elemen Pertama --\n" << endl;
-			cout << "Pilih List:\n" << endl;
-			cout << "1. L1\n2. L2" << endl;
-			cout << "\nInput Pilihan: "; cin >> pilihan;
-			cout << endl;
-			switch(pilihan){
-				case 1:
-					cout << "Input elemen yang ingin ditambahkan: "; cin >> E;
-					cout << endl;
-					Konso(L1, E);
-					break;
-				case 2:
-					cout << "Input elemen yang ingin ditambahkan: "; cin >> E;
-					cout << endl;
-					Konso(L2, E);
-					break;
-				default:
-					cout << "Input tidak valid!\n" << endl;
-					break;
-			}
-			system("pause");
-			break;
-		case 12:
-			header();
-			cout << "\n-- Menampilkan List dengan Tambahan Masukan Elemen sebagai Elemen Terakhir --\n" << endl;
-			cout << "Pilih List:\n" << endl;
-			cout << "1. L1\n2. L2" << endl;
-			cout << "\nInput Pilihan: "; cin >> pilihan;
-			cout << endl;
-			switch(pilihan){
-				case 1:
-					cout << "Input elemen yang ingin ditambahkan: "; cin >> E;
-					cout << endl;
-					Kons(L1, E);
-					break;
-				case 2:
-					cout << "Input elemen yang ingin ditambahkan: "; cin >> E;
-					cout << endl;
-					Kons(L2, E);
-					break;
-				default:
-					cout << "Input tidak valid!\n" << endl;
-					break;
-			}
-			system("pause");
-			break;
-		case 13:
-			header();
-			cout << "\n-- Menampilkan Salinan List --\n" << endl;
+			cout << "\n-- Menampilkan Alamat Elemen Terakhir --\n" << endl;
 			cout << "Pilih List:\n" << endl;
 			cout << "1. L1\n2. L2" << endl;
 			cout << "\nInput Pilihan: "; cin >> pilihan;
@@ -437,8 +403,8 @@ int main()
 			switch(pilihan){
 				case 1:
 					if (!IsEmpty(L1)){
-						Copy(L1);
-						cout << endl << endl;
+						cout << "Alamat elemen terakhir L1: " << Tail(L1) << endl;
+						cout << endl;
 					}
 					else{
 						cout << "List L1 kosong!\n" << endl;
@@ -446,7 +412,7 @@ int main()
 					break;
 				case 2:
 					if (!IsEmpty(L2)){
-						Copy(L2);
+						cout << "Alamat elemen terakhir L2: " << Tail(L2) << endl;
 						cout << endl;
 					}
 					else{
@@ -459,9 +425,61 @@ int main()
 			}
 			system("pause");
 			break;
+		case 12:
+			header();
+			cout << "\n-- Menambah Elemen sebagai Elemen Pertama --\n" << endl;
+			cout << "Pilih List:\n" << endl;
+			cout << "1. L1\n2. L2" << endl;
+			cout << "\nInput Pilihan: "; cin >> pilihan;
+			cout << endl;
+			switch(pilihan){
+				case 1:
+					cout << "Input elemen yang ingin ditambahkan: "; cin >> E;
+					cout << endl;
+					L1 = Konso(L1, E);
+					cout << "Elemen berhasil ditambahkan!\n" << endl;
+					break;
+				case 2:
+					cout << "Input elemen yang ingin ditambahkan: "; cin >> E;
+					cout << endl;
+					L2 = Konso(L2, E);
+					cout << "Elemen berhasil ditambahkan!\n" << endl;
+					break;
+				default:
+					cout << "Input tidak valid!\n" << endl;
+					break;
+			}
+			system("pause");
+			break;
+		case 13:
+			header();
+			cout << "\n-- Menambah Elemen sebagai Elemen Terakhir --\n" << endl;
+			cout << "Pilih List:\n" << endl;
+			cout << "1. L1\n2. L2" << endl;
+			cout << "\nInput Pilihan: "; cin >> pilihan;
+			cout << endl;
+			switch(pilihan){
+				case 1:
+					cout << "Input elemen yang ingin ditambahkan: "; cin >> E;
+					cout << endl;
+					L1 = Kons(L1, E);
+					cout << "Elemen berhasil ditambahkan!\n" << endl;
+					break;
+				case 2:
+					cout << "Input elemen yang ingin ditambahkan: "; cin >> E;
+					cout << endl;
+					L2 = Kons(L2, E);
+					cout << "Elemen berhasil ditambahkan!\n" << endl;
+					break;
+				default:
+					cout << "Input tidak valid!\n" << endl;
+					break;
+			}
+			system("pause");
+			break;
 		case 14:
 			header();
-			cout << "\n-- Menampilkan Salinan List ke List Lt --\n" << endl;
+			cout << "\n-- Menyalin List ke dalam List Lt --\n" << endl;
 			cout << "Pilih List:\n" << endl;
 			cout << "1. L1\n2. L2" << endl;
 			cout << "\nInput Pilihan: "; cin >> pilihan;
@@ -469,9 +487,8 @@ int main()
 			switch(pilihan){
 				case 1:
 					if (!IsEmpty(L1)){
-						MengCopy(L1, Lt);
-						cout << "List L1 berhasil disalin ke Lt!" << endl;
-						cout << endl;
+						Lt = Copy(L1);
+						cout << "List berhasil disalin!\n" << endl;
 					}
 					else{
 						cout << "List L1 kosong!\n" << endl;
@@ -479,9 +496,8 @@ int main()
 					break;
 				case 2:
 					if (!IsEmpty(L2)){
-						MengCopy(L2, Lt);
-						cout << "List L2 berhasil disalin ke Lt!" << endl;
-						cout << endl;
+						Lt = Copy(L2);
+						cout << "List berhasil disalin!\n" << endl;
 					}
 					else{
 						cout << "List L2 kosong!\n" << endl;
@@ -495,19 +511,31 @@ int main()
 			break;
 		case 15:
 			header();
-			cout << "\n-- Menampilkan Salinan Hasil Konkatenasi Dua List Tipe 1 --\n" << endl;
+			cout << "\n-- Menyalin List ke dalam List Lt --\n" << endl;
 			cout << "Pilih List:\n" << endl;
-			cout << "1. L1 dengan L2\n2. L2 dengan L1" << endl;
+			cout << "1. L1\n2. L2" << endl;
 			cout << "\nInput Pilihan: "; cin >> pilihan;
 			cout << endl;
 			switch(pilihan){
 				case 1:
-					Concat(L1, L2);
-					cout << endl;
+					if (!IsEmpty(L1)){
+						MengCopy(L1, &Lt);
+						cout << "List L1 berhasil disalin ke Lt!" << endl;
+						cout << endl;
+					}
+					else{
+						cout << "List L1 kosong!\n" << endl;
+					}
 					break;
 				case 2:
-					Concat(L2, L1);
-					cout << endl;
+					if (!IsEmpty(L2)){
+						MengCopy(L2, &Lt);
+						cout << "List L2 berhasil disalin ke Lt!" << endl;
+						cout << endl;
+					}
+					else{
+						cout << "List L2 kosong!\n" << endl;
+					}
 					break;
 				default:
 					cout << "Input tidak valid!\n" << endl;
@@ -517,19 +545,29 @@ int main()
 			break;
 		case 16:
 			header();
-			cout << "\n-- Menampilkan Salinan Hasil Konkatenasi Dua List Tipe 2 --\n" << endl;
+			cout << "\n-- Konkatenasi Dua List ke dalam List Lt Tipe 1 --\n" << endl;
 			cout << "Pilih List:\n" << endl;
 			cout << "1. L1 dengan L2\n2. L2 dengan L1" << endl;
 			cout << "\nInput Pilihan: "; cin >> pilihan;
 			cout << endl;
 			switch(pilihan){
 				case 1:
-					Concat1(L1, L2);
-					cout << endl;
+					if (!IsEmpty(L1) || !IsEmpty(L2)){
+						Lt = Concat(L1, L2);
+						cout << "Konkatenasi berhasil!\n" << endl;	
+					}
+					else{
+						cout << "List kosong!\n" << endl;
+					}
 					break;
 				case 2:
-					Concat1(L2, L1);
-					cout << endl;
+					if (!IsEmpty(L1) || !IsEmpty(L2)){
+						Lt = Concat(L2, L1);
+						cout << "Konkatenasi berhasil!\n" << endl;	
+					}
+					else{
+						cout << "List kosong!\n" << endl;
+					}
 					break;
 				default:
 					cout << "Input tidak valid!\n" << endl;
@@ -539,19 +577,61 @@ int main()
 			break;
 		case 17:
 			header();
-			cout << "\n-- Menghasilkan Salinan Hasil Konkatenasi Dua List --\n" << endl;
+			cout << "\n-- Konkatenasi Dua List ke dalam List Lt Tipe 2 --\n" << endl;
 			cout << "Pilih List:\n" << endl;
 			cout << "1. L1 dengan L2\n2. L2 dengan L1" << endl;
 			cout << "\nInput Pilihan: "; cin >> pilihan;
 			cout << endl;
 			switch(pilihan){
 				case 1:
-					Meng_Concat(L1, L2, Lt);
-					cout << endl;
+					if (!IsEmpty(L1) || !IsEmpty(L2)){
+						Lt = Concat1(L1, L2);
+						cout << "Konkatenasi berhasil!\n" << endl;	
+					}
+					else{
+						cout << "List kosong!\n" << endl;
+					}
 					break;
 				case 2:
-					Meng_Concat(L2, L1, Lt);
-					cout << endl;
+					if (!IsEmpty(L1) || !IsEmpty(L2)){
+						Lt = Concat1(L2, L1);
+						cout << "Konkatenasi berhasil!\n" << endl;	
+					}
+					else{
+						cout << "List kosong!\n" << endl;
+					}
+					break;
+				default:
+					cout << "Input tidak valid!\n" << endl;
+					break;
+			}
+			system("pause");
+			break;
+		case 18:
+			header();
+			cout << "\n-- Konkatenasi Dua List ke dalam List Tipe 3 --\n" << endl;
+			cout << "Pilih List:\n" << endl;
+			cout << "1. L1 dengan L2\n2. L2 dengan L1" << endl;
+			cout << "\nInput Pilihan: "; cin >> pilihan;
+			cout << endl;
+			switch(pilihan){
+				case 1:
+					if (!IsEmpty(L1) || !IsEmpty(L2)){
+						Meng_Concat(L1, L2, &Lt);
+						cout << "Konkatenasi berhasil!\n" << endl;	
+					}
+					else{
+						cout << "List kosong!\n" << endl;
+					}
+					break;
+				case 2:
+					if (!IsEmpty(L1) || !IsEmpty(L2)){
+						Meng_Concat(L2, L1, &Lt);
+						cout << "Konkatenasi berhasil!\n" << endl;	
+					}
+					else{
+						cout << "List kosong!\n" << endl;
+					}
 					break;
 				default:
 					cout << "Input tidak valid!\n" << endl;
